@@ -16,18 +16,23 @@ data class ContactRequest(
 
 ### Constraints Verified:
 
-#### It allows for a range of characters in the local part of the email (before the '@'), including:
+#### Verification follows the format as per RFC 5321.
+
+The total length of the email address must not exceed 254 characters (as per RFC 5321).
+
+The top-level domain (TLD) must be at least two characters long.
+
+#### The local part of the email (before the '@') allows:
 * Uppercase and lowercase letters (A-Z, a-z)
 * Digits (0-9)
-* Some chars: dot (.), underscore (_), percent (%), plus (+), hyphen (-)
-     
+* Characters: dot (.), underscore (_), percent (%), plus (+), hyphen (-)
+* Maximum length of 64 characters (as per RFC 5321)
+
 #### The domain part of the email (after the '@') can include:
 * Letters (A-Z, a-z)
 * Digits (0-9)
 * Hyphens (-)
-
-The top-level domain (TLD) must be at least two characters long.
-
+     
 #### Examples of valid email formats:
 * `example@email.com`
 * `user.name+tag+sorting@example.co.uk`
@@ -43,3 +48,4 @@ The top-level domain (TLD) must be at least two characters long.
 * `email..email@example.com` (local part has consecutive dots)
 * `email@example` (no top-level domain)
 * `email@example...com` (top-level domain has consecutive dots)
+
