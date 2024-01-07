@@ -9,14 +9,16 @@ package perraco.utils
 object SecurityUtils {
 
     /**
-     * Verifies if an email address is in the correct format.
+     * Verifies if an email address is in the correct format as per RFC 5321.
      *
      * This function checks the format of the provided email address against a regular expression pattern.
+     * It adheres to the RFC 5321 specification, which defines the standard format for email addresses.
      *
-     * It allows for a range of characters in the local part of the email (before the '@'), including:
+     * The local part of the email (before the '@') allows:
      *      • Uppercase and lowercase letters (A-Z, a-z)
      *      • Digits (0-9)
-     *      • Some chars: dot (.), underscore (_), percent (%), plus (+), hyphen (-)
+     *      • Characters: dot (.), underscore (_), percent (%), plus (+), hyphen (-)
+     *      • Maximum length of 64 characters (as per RFC 5321)
      * 
      * The domain part of the email (after the '@') can include:
      *      • Letters (A-Z, a-z)
@@ -24,6 +26,7 @@ object SecurityUtils {
      *      • Hyphens (-)
      *
      * The top-level domain (TLD) must be at least two characters long.
+     * The total length of the email address must not exceed 254 characters (as per RFC 5321).
      *
      * Examples of valid email formats:
      *      • example@email.com
@@ -42,7 +45,7 @@ object SecurityUtils {
      *      • email@example...com (top-level domain has consecutive dots)
      *
      * @param email The email address to check.
-     * @return True if the email is valid according to the regex pattern, false otherwise.
+     * @return True if the email is valid according to the regex pattern and RFC 5321, false otherwise.
      */
     fun isValidEmail(email: String): Boolean {
         val emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
@@ -50,7 +53,7 @@ object SecurityUtils {
             return false
         }
 
-        // Check for the maximum length of the entire email address (254 characters).
+        // Check for the maximum length of the entire email address (254 characters as per RFC 5321).
         if (email.length > 254) {
             return false
         }
@@ -60,7 +63,7 @@ object SecurityUtils {
         val localPart = parts[0]
         val domainPart = parts[1]
 
-        // Check for the maximum length of the local part (64 characters).
+        // Check for the maximum length of the local part (64 characters as per RFC 5321).
         if (localPart.length > 64) {
             return false
         }
