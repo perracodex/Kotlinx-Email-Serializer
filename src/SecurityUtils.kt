@@ -13,6 +13,8 @@ object SecurityUtils {
      *
      * This function checks the format of the provided email address against a regular expression pattern.
      * It adheres to the RFC 5321 specification, which defines the standard format for email addresses.
+     * The top-level domain (TLD) must be at least two characters long.
+     * The total length of the email address must not exceed 254 characters (as per RFC 5321).
      *
      * The local part of the email (before the '@') allows:
      *      • Uppercase and lowercase letters (A-Z, a-z)
@@ -24,9 +26,6 @@ object SecurityUtils {
      *      • Letters (A-Z, a-z)
      *      • Digits (0-9)
      *      • Hyphens (-)
-     *
-     * The top-level domain (TLD) must be at least two characters long.
-     * The total length of the email address must not exceed 254 characters (as per RFC 5321).
      *
      * Examples of valid email formats:
      *      • example@email.com
