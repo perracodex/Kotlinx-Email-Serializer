@@ -14,7 +14,7 @@ data class ContactRequest(
 
 ```
 
-### Constrains verfied:
+### Constraints Verified:
 
 It allows for a range of characters in the local part of the email (before the '@'), including:
 ```
