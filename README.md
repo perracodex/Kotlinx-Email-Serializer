@@ -36,7 +36,7 @@ The top-level domain (TLD) must be at least two characters long.
 * `user1234@example-company.com`
 
 #### Examples of invalid email formats:
-* plainText
+* `any-plain-text`
 * `@no-local-part.com`
 * `.email@example.com` (local part starts with a dot)
 * `email.@example.com` (local part ends with a dot)
