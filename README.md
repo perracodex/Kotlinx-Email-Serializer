@@ -1,6 +1,8 @@
 # Kotlinx-Email-Serializer
 An email serializer for the kotlinx serialization library, checking the format validity of an email.
 
+Requires the [kotlinX serialization](https://github.com/Kotlin/kotlinx.serialization) library:
+
 Usagle:
 
 ```kotlin
