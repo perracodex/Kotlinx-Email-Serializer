@@ -9,10 +9,9 @@ package perraco.utils
 object SecurityUtils {
 
     /**
-     * Verifies if an email address is in the correct format as per RFC 5321.
-     *
-     * This function checks the format of the provided email address against a regular expression pattern.
+     * Verifies if an email address is in the correct format.
      * It adheres to the RFC 5321 specification, which defines the standard format for email addresses.
+     *
      * The top-level domain (TLD) must be at least two characters long.
      * The total length of the email address must not exceed 254 characters (as per RFC 5321).
      *
