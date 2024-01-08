@@ -4,7 +4,7 @@
  * For a copy, see <https://opensource.org/licenses/MIT>
  */
 
-package perraco.utils
+package com.perraco.utils
 
 object SecurityUtils {
 
